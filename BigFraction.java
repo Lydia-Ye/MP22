@@ -41,8 +41,8 @@ public class BigFraction {
    */
   public BigFraction(BigInteger num, BigInteger denom) {
     // Reduce to the simplest form
-    this.num = this.num.divide(num.gcd(denom));
-    this.denom = this.denom.divide(num.gcd(denom));
+    this.num = num.divide(num.gcd(denom));
+    this.denom = denom.divide(num.gcd(denom));
   } // BigFraction(BigInteger, BigInteger)
 
   /**
@@ -55,9 +55,22 @@ public class BigFraction {
     BigInteger bigNum = BigInteger.valueOf(num);
     BigInteger bigDenom = BigInteger.valueOf(denom);
     // Reduce to the simplest form
-    this.num = this.bigNum.divide(bigNum.gcd(bigDenom));
-    this.denom = this.bigDenom.divide(bigNum.gcd(bigDenom));
+    this.num = bigNum.divide(bigNum.gcd(bigDenom));
+    this.denom = bigDenom.divide(bigNum.gcd(bigDenom));
   } // BigFraction(int, int)
+
+  /**
+   * Build a new fraction with an integer 
+   * 
+   */
+  public BigFraction(int num) {
+    // Convert integer to BigInteger
+    BigInteger bigNum = BigInteger.valueOf(num);
+    // Convert it to BigFraction with denominator of 1
+    this.num = BigInteger.valueOf(num)
+    this.denom = BigInteger.valueOf(1)
+  } // BigFraction(int, int)
+  
 
   /**
    * Build a new fraction in the simplest form by parsing a string.
@@ -69,8 +82,8 @@ public class BigFraction {
     BigInteger strNum = new BigInteger(numStr[0]);
     BigInteger strDenom = new BigInteger(numStr[1]);
     // Reduce to the simplest form
-    this.num = this.strNum.divide(strNum.gcd(strDenom));
-    this.denom = this.strDenom.divide(strNum.gcd(strDenom));
+    this.num = strNum.divide(strNum.gcd(strDenom));
+    this.denom = strDenom.divide(strNum.gcd(strDenom));
   } // BigFraction(String str)
 
   // +---------+------------------------------------------------------
