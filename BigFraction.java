@@ -70,6 +70,16 @@ public class BigFraction {
     this.num = BigInteger.valueOf(num)
     this.denom = BigInteger.valueOf(1)
   } // BigFraction(int, int)
+
+  /**
+   * Build a new fraction with an integer 
+   * 
+   */
+  public BigFraction(BigInteger num) {
+    // Convert it to BigFraction with denominator of 1
+    this.num = num;
+    this.denom = BigInteger.valueOf(1);
+  } // BigFraction(int, int)
   
 
   /**
